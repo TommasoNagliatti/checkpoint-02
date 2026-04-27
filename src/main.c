@@ -34,6 +34,23 @@ void sistema_media() {
     ClassificarAluno(media);
 }
 
+void calcularPresenca() {
+    int presenca;
+    do {
+        printf("Digite sua presenca (0 a 100): ");
+        scanf("%d", &presenca);
+        if (presenca < 0 || presenca > 100) {
+            printf("Presenca invalida! Tente novamente.\n");
+        }
+    } while (presenca < 0 || presenca > 100);
+
+    if (presenca >= 75) {
+        printf("Aluno aprovado!\n");
+    } else {
+        printf("Aluno reprovado!\n");
+    }
+}
+
 void menu() {
     printf("\n================== MENU ==================\n");
     printf("1 - Calcular media\n");
@@ -54,7 +71,8 @@ int main() {
                 sistema_media();
                 break;
             case 2:
-                printf("Funcao de presenca ainda nao implementada.\n");
+                printf("========CALCULAR PRESENCA========\n");
+                calcularPresenca();
                 break;
             case 3:
                 printf("Funcao de derivada ainda nao implementada.\n");

@@ -1,21 +1,5 @@
 #include <stdio.h>
 
-float CalcularMedia(float n1, float n2, float n3){
-    return (n1 + n2 + n3) / 3;
-}
-
-void ClassificarAluno(float media){
-    if(media >= 7){
-        printf("Aprovado\n");
-    }
-    else if(media >= 5 && media < 7){
-        printf("Recuperacao\n");
-    }
-    else{
-        printf("Reprovado\n");
-    }             
-}
-
 void ler_nota(float *nota) {
     do {
         printf("Digite uma nota (0 a 10): ");
@@ -39,7 +23,7 @@ void menu(){
 
 int main() {
     int opcao;
-    float n1, n2, n3, media;
+    float nota1, nota2, media;
 
     do {
         menu();
@@ -47,14 +31,19 @@ int main() {
 
         switch(opcao) {
             case 1:
-                ler_nota(&n1);
-                ler_nota(&n2);
-                ler_nota(&n3);
+                // tudo direto no main
+                ler_nota(&nota1);
+                ler_nota(&nota2);
 
-                media = CalcularMedia(n1, n2, n3);
+                media = (nota1 + nota2) / 2;
+
                 printf("Media: %.2f\n", media);
 
-                ClassificarAluno(media);
+                if (media >= 6) {
+                    printf("Aluno aprovado\n");
+                } else {
+                    printf("Aluno reprovado\n");
+                }
                 break;
 
             case 2:

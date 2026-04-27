@@ -1,7 +1,6 @@
 //Descrevemos o que cada um fez no README (O Junior teve problema com o envio do git, mas alterou o código manualmente)
 //Teve outros problemas em relação ao git como: O gallo ter esquecido de commitar alterações posteriores
 
-
 #include <stdio.h>
 
 void ler_nota(float *nota);

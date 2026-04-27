@@ -1,4 +1,44 @@
+//Descrevemos o que cada um fez no README (O Junior teve problema com o envio do git, mas alterou o código manualmente)
+//Teve outros problemas em relação ao git como: O gallo ter esquecido de commitar alterações posteriores
+
 #include <stdio.h>
+
+void ler_nota(float *nota);
+float CalcularMedia(float n1, float n2, float n3);
+void ClassificarAluno(float media);
+void sistema_media();
+void menu();
+void calcularPresenca();
+void calcularDerivada();
+
+void sistema_media(){
+    float n1, n2, n3, media;
+
+    ler_nota(&n1);
+    ler_nota(&n2);
+    ler_nota(&n3);
+
+    media = CalcularMedia(n1, n2, n3);
+    printf("Media: %.2f\n", media);
+
+    ClassificarAluno(media);
+}
+
+float CalcularMedia(float n1, float n2, float n3){
+    return (n1 + n2 + n3) / 3;
+}
+
+void ClassificarAluno(float media){
+    if(media >= 7){
+        printf("Aprovado\n");
+    }
+    else if(media >= 5){
+        printf("Recuperacao\n");
+    }
+    else{
+        printf("Reprovado\n");
+    }
+}
 
 void ler_nota(float *nota) {
     do {
@@ -21,9 +61,41 @@ void menu(){
     printf("Escolha: ");
 }
 
+void calcularPresenca(){
+    int presenca;
+        printf("digite sua presenca (0 - 100): ");
+        scanf("%d", &presenca);
+
+        if (presenca >= 75 && presenca < 101){
+            printf("Aluno aprovado!");
+        }
+        else if (presenca < 75 && presenca >= 0){
+            printf("Aluno reprovado!");
+        }
+        else {
+            printf("presenca invalida!");
+        }
+            
+}
+
+void calcularDerivada (){
+    float a, b, c;
+
+    printf("Digite o valor de a: ");
+    scanf("%f", &a);
+
+    printf("Digite o valor de b: ");
+    scanf("%f", &b);
+
+    printf("Digite o valor de c: ");
+    scanf("%f", &c);
+
+
+    printf("\nDerivada: f'(x) = %.0fx + %.0f\n", 2 * a, b);
+}
+
 int main() {
     int opcao;
-    float nota1, nota2, media;
 
     do {
         menu();
@@ -31,27 +103,18 @@ int main() {
 
         switch(opcao) {
             case 1:
-                // tudo direto no main
-                ler_nota(&nota1);
-                ler_nota(&nota2);
-
-                media = (nota1 + nota2) / 2;
-
-                printf("Media: %.2f\n", media);
-
-                if (media >= 6) {
-                    printf("Aluno aprovado\n");
-                } else {
-                    printf("Aluno reprovado\n");
-                }
+                printf("========CALCULAR MEDIA========\n");
+                sistema_media();
                 break;
 
             case 2:
-                printf("Funcao de presenca ainda nao implementada.\n");
+                printf("========CALCULAR PRESENCA========\n");
+                calcularPresenca();
                 break;
 
             case 3:
-                printf("Funcao de derivada ainda nao implementada.\n");
+                printf("========CALCULAR DERIVADA========\n");
+                calcularDerivada ();
                 break;
 
             case 0:

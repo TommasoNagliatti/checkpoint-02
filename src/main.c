@@ -12,26 +12,56 @@ void ler_nota(float *nota) {
     } while (*nota < 0 || *nota > 10);
 }
 
+void menu(){
+    printf("\n================== MENU ==================\n");
+    printf("1 - Calcular media\n");
+    printf("2 - Calcular presenca\n");
+    printf("3 - Calcular derivada\n");
+    printf("0 - Sair\n");
+    printf("Escolha: ");
+}
+
 int main() {
+    int opcao;
     float nota1, nota2, media;
 
-    printf("==================MENU==================\n");
-    printf("========Qual opcao voce deseja?=========\n");
-    printf("Calcular media (1)\n");
-    printf("Calcular presenca (2)\n");
-    printf("Calcular derivada (0)\n");
+    do {
+        menu();
+        scanf("%d", &opcao);
 
-    ler_nota(&nota1);
-    ler_nota(&nota2);
+        switch(opcao) {
+            case 1:
+                ler_nota(&nota1);
+                ler_nota(&nota2);
 
-    media = (nota1 + nota2) / 2;
-    printf("Media: %.2f\n", media);
+                media = (nota1 + nota2) / 2;
 
-    if (media >= 6) {
-        printf("Aluno aprovado\n");
-    } else {
-        printf("Aluno reprovado\n");
-    }
+                printf("Media: %.2f\n", media);
+
+                if (media >= 6) {
+                    printf("Aluno aprovado\n");
+                } else {
+                    printf("Aluno reprovado\n");
+                }
+                break;
+
+            case 2:
+                printf("Funcao de presenca ainda nao implementada.\n");
+                break;
+
+            case 3:
+                printf("Funcao de derivada ainda nao implementada.\n");
+                break;
+
+            case 0:
+                printf("Saindo...\n");
+                break;
+
+            default:
+                printf("Opcao invalida\n");
+        }
+
+    } while(opcao != 0);
 
     return 0;
 }

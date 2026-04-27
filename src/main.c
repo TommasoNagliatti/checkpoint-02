@@ -74,28 +74,40 @@ void menu() {
 
 int main() {
     int opcao;
+
+    printf("==========================================\n");
+    printf("   BEM-VINDO AO SISTEMA ACADEMICO v1.0   \n");
+    printf("==========================================\n");
+
     do {
         menu();
         scanf("%d", &opcao);
+
         switch(opcao) {
             case 1:
                 printf("========CALCULAR MEDIA========\n");
                 sistema_media();
                 break;
+
             case 2:
                 printf("========CALCULAR PRESENCA========\n");
                 calcularPresenca();
                 break;
+
             case 3:
                 printf("========CALCULAR DERIVADA========\n");
-                calcularDerivada();
+                calcularDerivada ();
                 break;
+
             case 0:
                 printf("Saindo...\n");
                 break;
+
             default:
                 printf("Opcao invalida\n");
         }
+
     } while(opcao != 0);
+
     return 0;
 }

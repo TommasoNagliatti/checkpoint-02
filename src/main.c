@@ -51,6 +51,18 @@ void calcularPresenca() {
     }
 }
 
+void calcularDerivada() {
+    float a, b, c;
+    printf("Digite o valor de a: ");
+    scanf("%f", &a);
+    printf("Digite o valor de b: ");
+    scanf("%f", &b);
+    printf("Digite o valor de c: ");
+    scanf("%f", &c);
+    printf("\nFuncao original: f(x) = %.0fx^2 + %.0fx + %.0f\n", a, b, c);
+    printf("Derivada: f'(x) = %.0fx + %.0f\n", 2 * a, b);
+}
+
 void menu() {
     printf("\n================== MENU ==================\n");
     printf("1 - Calcular media\n");
@@ -75,7 +87,8 @@ int main() {
                 calcularPresenca();
                 break;
             case 3:
-                printf("Funcao de derivada ainda nao implementada.\n");
+                printf("========CALCULAR DERIVADA========\n");
+                calcularDerivada();
                 break;
             case 0:
                 printf("Saindo...\n");

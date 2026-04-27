@@ -24,43 +24,51 @@ void ClassificarAluno(float media) {
     }
 }
 
-void sistema_media() {
+void sistema_media(){
     float n1, n2, n3, media;
+
     ler_nota(&n1);
     ler_nota(&n2);
     ler_nota(&n3);
+
     media = CalcularMedia(n1, n2, n3);
     printf("Media: %.2f\n", media);
+
     ClassificarAluno(media);
+    printf("==========================================\n");
 }
 
-void calcularPresenca() {
+void calcularPresenca(){
     int presenca;
-    do {
-        printf("Digite sua presenca (0 a 100): ");
+        printf("digite sua presenca (0 - 100): ");
         scanf("%d", &presenca);
-        if (presenca < 0 || presenca > 100) {
-            printf("Presenca invalida! Tente novamente.\n");
-        }
-    } while (presenca < 0 || presenca > 100);
 
-    if (presenca >= 75) {
-        printf("Aluno aprovado!\n");
-    } else {
-        printf("Aluno reprovado!\n");
-    }
+        if (presenca >= 75 && presenca < 101){
+            printf("Aluno aprovado!");
+        }
+        else if (presenca < 75 && presenca >= 0){
+            printf("Aluno reprovado!");
+        }
+        else {
+            printf("presenca invalida!");
+        }
+    printf("\n==========================================\n");
 }
 
-void calcularDerivada() {
+void calcularDerivada (){
     float a, b, c;
+
     printf("Digite o valor de a: ");
     scanf("%f", &a);
+
     printf("Digite o valor de b: ");
     scanf("%f", &b);
+
     printf("Digite o valor de c: ");
     scanf("%f", &c);
-    printf("\nFuncao original: f(x) = %.0fx^2 + %.0fx + %.0f\n", a, b, c);
-    printf("Derivada: f'(x) = %.0fx + %.0f\n", 2 * a, b);
+
+    printf("\nDerivada: f'(x) = %.0fx + %.0f\n", 2 * a, b);
+    printf("==========================================\n");
 }
 
 void menu() {

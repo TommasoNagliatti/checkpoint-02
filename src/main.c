@@ -1,28 +1,12 @@
 #include <stdio.h>
 
-void ler_nota(float *nota) {
-    do {
-        printf("Digite uma nota (0 a 10): ");
-        scanf("%f", nota);
-        if (*nota < 0 || *nota > 10) {
-            printf("Valor invalido! Tente novamente.\n");
-        }
-    } while (*nota < 0 || *nota > 10);
-}
-
-float CalcularMedia(float n1, float n2, float n3) {
-    return (n1 + n2 + n3) / 3;
-}
-
-void ClassificarAluno(float media) {
-    if (media >= 7) {
-        printf("Aprovado\n");
-    } else if (media >= 5) {
-        printf("Recuperacao\n");
-    } else {
-        printf("Reprovado\n");
-    }
-}
+void ler_nota(float *nota);
+float CalcularMedia(float n1, float n2, float n3);
+void ClassificarAluno(float media);
+void sistema_media();
+void menu();
+void calcularPresenca();
+void calcularDerivada();
 
 void sistema_media(){
     float n1, n2, n3, media;
@@ -35,7 +19,43 @@ void sistema_media(){
     printf("Media: %.2f\n", media);
 
     ClassificarAluno(media);
-    printf("==========================================\n");
+}
+
+float CalcularMedia(float n1, float n2, float n3){
+    return (n1 + n2 + n3) / 3;
+}
+
+void ClassificarAluno(float media){
+    if(media >= 7){
+        printf("Aprovado\n");
+    }
+    else if(media >= 5){
+        printf("Recuperacao\n");
+    }
+    else{
+        printf("Reprovado\n");
+    }
+}
+
+void ler_nota(float *nota) {
+    do {
+        printf("Digite uma nota (0 a 10): ");
+        scanf("%f", nota);
+
+        if (*nota < 0 || *nota > 10) {
+            printf("Valor invalido! Tente novamente.\n");
+        }
+
+    } while (*nota < 0 || *nota > 10);
+}
+
+void menu(){
+    printf("\n================== MENU ==================\n");
+    printf("1 - Calcular media\n");
+    printf("2 - Calcular presenca\n");
+    printf("3 - Calcular derivada\n");
+    printf("0 - Sair\n");
+    printf("Escolha: ");
 }
 
 void calcularPresenca(){
@@ -52,7 +72,7 @@ void calcularPresenca(){
         else {
             printf("presenca invalida!");
         }
-    printf("\n==========================================\n");
+            
 }
 
 void calcularDerivada (){
@@ -67,25 +87,12 @@ void calcularDerivada (){
     printf("Digite o valor de c: ");
     scanf("%f", &c);
 
-    printf("\nDerivada: f'(x) = %.0fx + %.0f\n", 2 * a, b);
-    printf("==========================================\n");
-}
 
-void menu() {
-    printf("\n================== MENU ==================\n");
-    printf("1 - Calcular media\n");
-    printf("2 - Calcular presenca\n");
-    printf("3 - Calcular derivada\n");
-    printf("0 - Sair\n");
-    printf("Escolha: ");
+    printf("\nDerivada: f'(x) = %.0fx + %.0f\n", 2 * a, b);
 }
 
 int main() {
     int opcao;
-
-    printf("==========================================\n");
-    printf("   BEM-VINDO AO SISTEMA ACADEMICO v1.0   \n");
-    printf("==========================================\n");
 
     do {
         menu();

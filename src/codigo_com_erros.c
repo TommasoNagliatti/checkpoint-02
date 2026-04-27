@@ -1,9 +1,8 @@
-#include "stdio.h"
+#include <stdio.h>
 
 int main() {
-    float nota1, nota2, media
+    float nota1, nota2, media;
 
-    
     printf("Digite a primeira nota: ");
     scanf("%f", &nota1);
 
@@ -12,7 +11,7 @@ int main() {
 
     media = (nota1 + nota2) / 2;
 
-    if (media = 6) {
+    if (media >= 6) {
         printf("Aluno aprovado\n");
     } else {
         printf("Aluno reprovado\n");
